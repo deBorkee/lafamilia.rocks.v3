@@ -1,0 +1,46 @@
+$white: #fff;
+
+$gray--dark: #333;
+
+$black: #000;
+
+$green: #2fb816;
+$green--light: #53c53f;
+$green--middle: #2b831b;
+$green--dark: #0f6c01;
+
+$blue: #0171b4;
+$blue--dark: #005687;
+$blue--gray: #5494b9;
+
+$red: #d41616;
+$red--dark: #8f1e1e;
+$red--light: #eb4d4d;
+
+$orange: #ff6400;
+$orange--dark: #a04102;
+$orange--light: #f9a926;
+
+
+
+$brown: #351c07;
+$brown--light: #53351b;
+
+/* colors */
+.color {
+    &-white {
+        color: $white;
+    }
+
+    &-red {
+        color: $red;
+    }
+
+    &-black {
+        color: $black;
+    }
+
+    &-blue--dark {
+        color: $blue--dark;
+    }
+}

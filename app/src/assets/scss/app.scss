@@ -1,0 +1,734 @@
+@use "colors";
+
+::selection {
+    background: colors.$blue--dark;
+    color: colors.$white;
+}
+
+/* General Tags */
+html,
+body {
+    background: rgb(60, 60, 60);
+    font-family: 'Roboto',sans-serif;
+    display: flex;
+    justify-content: center;
+    color: white;
+    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    z-index: 0;
+}
+
+
+div {
+    width: 100%;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 14px;
+    max-width: 100%;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 100;
+}
+
+/* Headline-Tags H1 H2 H3 ... */
+h {
+
+    &1,
+    &2,
+    &3 {
+        color: white;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    &4 {
+        font-weight:900;
+        text-transform: uppercase;
+        margin:0 0 4px 0;
+    }
+
+    &1 {
+        font-size: 4.8rem;
+        line-height: 5rem;
+        font-family: 'Parisienne', cursive;
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        position: relative;
+
+        &:before {
+            content: "LaFamilia";
+            text-shadow: none;
+            position: absolute;
+            z-index: -1;
+            font-weight: 900;
+            color: rgba(0, 0, 0, 1);
+            opacity: 0.2;
+            transform: scale(1.1);
+            text-align: center;
+        }
+
+        &.shadow--beehive:before {
+            content: "BeeHive";
+        }
+    }
+
+    &2 {
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+        width: 100%;
+        background: rgba(0, 0, 0, 0.05);
+        padding: 12px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+        margin-bottom: 6px;
+
+        &:before,
+        &:after {
+            content: "";
+            display: inline-block;
+            width: 5vw;
+            height: 5px;
+            border-top: 4px;
+            border-bottom: 2px;
+            border-left: 0px;
+            border-color: rgba(255, 255, 255, 0.4) transparent rgba(255, 255, 255, 0.4) transparent;
+            border-style: solid;
+            position: relative;
+            top: -1px;
+            margin: 0px 4px;
+        }
+
+        &:before {
+            transform: scaleX(-1);
+        }
+    }
+
+    &3 {
+        text-transform: uppercase;
+        margin: 6px 0;
+        font-size: 24px;
+
+        &.version {
+            text-transform: none;
+            font-size: 10px;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+            opacity: .5;
+            margin: 0;
+        }
+    }
+}
+
+/* Areas */
+.area {
+    position: relative;
+    padding: 80px 0;
+    color: white;
+    width: 100vw;
+    box-sizing: border-box;
+    z-index: -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 34px;
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    &:after {
+        // stitches
+        content: "";
+        display: block;
+        height: 0px;
+        position: absolute;
+        top: 28px;
+        left: 0;
+        right: 0;
+        border-bottom: 2px dashed rgba(255, 255, 255, .25);
+    }
+
+    &__server {
+        background: rgb(152, 99, 42) url("assets/imgs/hero.webp") no-repeat 50% 0 / cover;
+        z-index: 1;
+
+        &__h1 {
+            /*font-size:4rem;*/
+        }
+
+        &__icon {
+            background: transparent url("assets/imgs/weapon.webp") no-repeat 50% 50%/contain;
+            width: 100%;
+            height: 165px;
+            position: absolute;
+            z-index: -1;
+            top: -69px;
+        }
+    }
+
+    &__hive {
+        background: rgb(96, 60, 30) url("assets/imgs/bedrock_low.webp") repeat 0 0;
+        box-shadow: 0 0 7px 0px rgba(0, 0, 0, .6);
+        background-size: auto 123px;
+        z-index: 2;
+
+        &__h1 {
+            font-size: 4rem;
+            margin-top: 2rem;
+
+            &__bee {
+                /* bad wording :( */
+                color: rgba(249, 169, 38, 1);
+            }
+        }
+
+        &__h2 {
+            background: rgba(0, 0, 0, 0.15);
+        }
+
+        &__icon {
+            background: transparent url("assets/imgs/bienenstock.webp") no-repeat 50% 50%/contain;
+            width: 100%;
+            height: 100px;
+            position: absolute;
+            top: -69px;
+            z-index: -1;
+        }
+    }
+
+    &__bottom {
+        z-index: 3;
+        background: rgb(60, 60, 60);
+        text-align: center;
+        padding: 40px 0 15px 0;
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.6);
+        font-weight: 900;
+    }
+
+}
+
+/* Classes */
+.headline {
+    opacity: 0.75;
+}
+
+.opa {
+    opacity: 0.5;
+
+    &25 {
+        opacity: 0.25;
+    }
+
+    &75 {
+        opacity: 0.75;
+    }
+}
+
+.small {
+    font-size: 12px;
+}
+
+.smaller {
+    font-size: 11px !important;
+}
+
+.heavy {
+    font-weight: 900;
+}
+
+.lightblue {
+    color: #93c4e2;
+}
+
+.dark {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.shadow {
+    &--white {
+        text-shadow: 1px 1px 1px rgba(colors.$white, 0.2);
+    }
+}
+
+.size {
+    &--half {
+        transform: scale(0.5);
+    }
+}
+
+
+/* Server Classes */
+.server {
+    max-width: calc(100% - 16px);
+    @media (min-width:740px) {
+        width: calc(50% - 16px);
+    }
+    margin: 0 8px 16px 8px;
+    &.fullwidth {
+        @media (min-width:740px) {
+            width: calc(100% - 16px);
+        }
+    }
+    &__box {
+        position: relative;
+        transition: ease all .3s;
+        display: block;
+        padding: 4px;
+        border-radius: 8px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+
+    }
+
+    &-status {
+        margin: 64px 0px;
+        flex-wrap: wrap;
+    }
+
+    &-minecraft {}
+
+    &-valheim {}
+
+    &-online {
+        background: rgb(15, 108, 1);
+        background: linear-gradient(352deg, rgba(colors.$green--dark, 1) 0%, rgba(colors.$green, 1) 100%);
+    }
+
+    &-offline {
+        background: rgba(colors.$blue--gray, 1);
+
+        .headline {
+            opacity: 0.75;
+        }
+
+        &.server-beehive {
+            background: rgba(colors.$brown, 0.5);
+
+            //opacity: 0.5;
+            .server {
+                &__mode {
+                    color: rgba(colors.$white, 0.15);
+                }
+
+                &__text {
+                    &--offline {
+                        opacity: 0.25;
+                    }
+                }
+                &__url {
+                    color:rgba(colors.$white,0.4);
+                    
+                }
+            }
+        }
+
+        .server__name:after {
+            background-image: linear-gradient(90deg, rgba(colors.$blue--gray, 0) 0%, rgba(colors.$blue--gray, 1) 100%);
+        }
+        
+    }
+
+    &-horde {
+        background:rgba(colors.$brown,.7);
+        @extend .toggle;
+        .server__url {
+            color:rgba(colors.$white,0.4);
+        }
+    }
+
+    /* Loader */
+    &__loader {
+        position: relative;
+        top: 20px;
+        opacity: 0.5;
+        width: 40px;
+        max-width: 40px;
+        height: 40px;
+
+        &__div {
+            box-sizing: border-box;
+            display: block;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border: 8px solid #fff;
+            border-radius: 50%;
+            animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+            border-color: #fff transparent transparent transparent;
+
+            &-2 {
+                animation-delay: -0.45s;
+            }
+
+            &-3 {
+                animation-delay: -0.3s;
+            }
+
+            &-4 {
+                animation-delay: -0.15s;
+            }
+        }
+    }
+
+    &__url {
+        display: inline-block;
+        background:rgba(colors.$white, 0.12);
+        border-radius: 4px;
+        padding:2px 4px;
+        box-shadow: 0px 0px 2px 1px rgba(colors.$black,0.1);
+    }
+
+    &__name {
+        position: relative;
+        margin-bottom: 0;
+        text-align: left;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 100%;
+        text-shadow: 1px 1px 1px rgba(colors.$black,0.2);
+
+        &:after {
+            content: "";
+            display: block;
+            width: 16px;
+            height: 100%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            background-image: linear-gradient(90deg, rgba(colors.$green, 0) 0%, rgba(colors.$green--middle, 1) 100%);
+        }
+    }
+
+    &__mode {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: -2px;
+        color: rgba(colors.$black, 0.35);
+        font-weight: 900;
+    }
+
+    &__model {
+        width: 100%;
+        display: flex;
+        position: relative;
+        top: -2px;
+        opacity: 0.85;
+    }
+
+    &__grid {
+        display: flex;
+        //flex-wrap: wrap;
+
+        &--left {
+            width: 56px;
+            flex-shrink: 0;
+            //flex-grow: 1;
+            //width: auto;
+        }
+
+        &--right {
+            width: 100%;
+            overflow: hidden;
+            flex-shrink: 1;
+            padding-bottom: 2px;
+            //flex-grow: 1;
+            //width:auto;
+        }
+    }
+
+    &__ip {
+        font-weight: 900;
+    }
+
+    &__player {}
+
+
+    &-beehive {
+        .server {
+            &__mode {
+                font-size: 12px;
+            }
+
+            &__name:after {
+                display: none;
+            }
+        }
+    }
+}
+
+
+
+
+.grid {
+    display: flex;
+    max-width: 960px;
+}
+
+.col {
+    max-width: 50%;
+    padding: 0 12px 0 0;
+}
+
+.hide {
+    display: none;
+}
+
+.map {
+    font-weight: 900;
+}
+
+.stitches {
+    border-radius: 5px;
+    padding: 8px 16px 0 16px;
+    border: 2px dashed rgba(255, 255, 255, .25);
+    height: 100%;
+}
+
+.heart {
+    font-size: 18px;
+    position: relative;
+    top: 2px;
+    color: colors.$orange;
+}
+
+/* Icons */
+.icon {
+    width: 40px;
+    height: 40px;
+    background: transparent no-repeat center center / contain;
+    opacity: 1;
+    transition: ease all .3s;
+
+    &-error {
+        background-image: url("assets/imgs/circle-exclamation-solid.svg");
+    }
+
+    &-minecraft {
+        background-image: url("assets/imgs/icon-minecraft.webp");
+    }
+
+    &-valheim {
+        background-image: url("assets/imgs/icon-valheim.webp");
+    }
+
+    &-beehive {
+        background-image: url("assets/imgs/biene.webp");
+    }
+
+    &-horde {
+        background-image: url("assets/imgs/shield-dog-solid.svg");
+    }
+    &-custom {
+        width:40px;
+        height:40px;
+    }
+
+    &-dropdown {
+        width: 32px;
+        height: 32px;
+        background-image: url("assets/imgs/circle-down-solid.svg");
+        background-size: contain;
+        background-position: 0 0;
+        opacity: 0.5 !important;
+        position: absolute;
+        right: 16px;
+        top: 72px;
+        z-index: 1;
+        border-radius: 50%;
+        border: 1px solid rgba(colors.$black, 0.25);
+    }
+}
+
+.notification {
+    border-radius: 4px;
+    padding: 1px 3px;
+    margin-right:8px;
+    border: 1px solid transparent;
+    position: relative;
+    display: inline-block;
+    text-shadow: 1px 1px 1px rgba(colors.$black,0.5);
+
+    &--orange {
+        background: rgba(colors.$orange, 1);
+        background: linear-gradient(180deg, rgba(colors.$orange, 1) 0%, rgba(colors.$orange--dark, 1) 100%);
+        color: rgba(colors.$white, 0.9);
+        border-color: rgba(colors.$orange--dark, 0.9);
+    }
+
+    &--red {
+        background: rgba(colors.$red, 1);
+        background: linear-gradient(180deg, rgba(colors.$red, 1) 0%, rgba(colors.$red--dark, 1) 100%);
+        color: rgba(colors.$white, 0.8);
+        border-color: rgba(colors.$red--dark, 1);
+    }
+    &--red,&--orange {
+        box-shadow: 0 5px 5px rgba(0, 0, 0, .1);
+        .gameversion--latest {
+            display: inline-block;
+        }
+    }
+
+    &--green {
+        /*opacity: .5;*/
+        border: none;
+        padding: 0 4px 0 0;
+        .gameVersion--latest {
+            display:none;
+        }
+    }
+
+    &--horde {
+        /* horde special */
+        margin: 0 4px 4px 0;
+        
+        color: rgba(colors.$white, 0.75);
+        border-color: rgba(colors.$green--dark, 1);
+            background: rgba(colors.$red, 1);
+            background: linear-gradient(180deg, rgba(colors.$green, 1) 0%, rgba(colors.$green--dark, 1) 100%);
+        &-offline {
+            
+
+            border-color: rgba(colors.$white, 0.2);
+            background: rgba(colors.$black, 0.2);
+            color: rgba(colors.$white, 0.5);
+        }
+    }
+}
+.gameVersion{
+    @extend .dark;
+    @extend .shadow--white;
+    &--latest {
+        margin-left:8px;
+    }    
+} 
+
+
+/* Ribbon */
+.ribbon {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    position: absolute;
+    top: -6px;
+    right: -6px;
+
+    &:before,
+    &:after {
+        top: 0;
+        left: 0;
+        bottom: auto;
+        border-top-color: transparent;
+        border-right-color: transparent;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        display: block;
+        border: 3px solid rgb(75, 46, 23);
+        box-sizing: content-box;
+
+    }
+
+    &:after {
+        top: auto;
+        left: auto;
+        bottom: 0;
+        right: 0;
+    }
+
+    &__content {
+        font-size: 12px;
+        color: rgba(colors.$white, 0.75);
+        left: -2px;
+        top: 16px;
+        transform: rotate(45deg);
+        position: absolute;
+        display: block;
+        width: 102px;
+        line-height: 16px;
+        padding: 2px 0;
+        background-color: rgb(137, 87, 42);
+        background: linear-gradient(49deg, rgba(137, 87, 42, 0) 75%, rgba(78, 47, 20, 1) 100%),
+            linear-gradient(315deg, rgb(137, 87, 42) 75%, rgba(196, 154, 116, 1) 100%);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+        text-shadow: 0 1px 1px rgba(0, 0, 0, .4);
+        text-align: center;
+        border: 2px dotted rgba(255, 255, 255, 0.4);
+        outline: 4px solid rgb(137, 87, 42, );
+
+
+    }
+}
+
+.infobox {
+    transition: ease all .3s;
+    position: relative;
+
+    &__content {
+        //@at-root: calc(100% - 96px);
+        opacity: 0;
+        background-color: rgba(colors.$orange--light, 1);
+        border-radius: 4px;
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, .6);
+        transition: ease all .3s;
+        color: transparent;
+        line-height: 0;
+        margin: 0;
+        padding: 0 12px;
+
+        &--horde {
+            padding: 0 4px;
+            background-color: rgba(colors.$brown, 1);
+        }
+    }
+}
+
+.toggle {
+    cursor: pointer;
+    transition: ease all .3s;
+
+    &--active {
+        .icon-dropdown {
+            transform: rotate(180deg);
+            opacity: 1 !important;
+        }
+
+        .infobox {
+
+            &__content {
+                color: rgba(colors.$black, 0.6);
+                opacity: 1;
+                line-height: 16px;
+                margin: 16px 0;
+                padding: 6px 12px;
+
+                &--horde {
+                    padding: 4px;
+                }
+            }
+        }
+    }
+}
+
+
+@keyframes lds-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
